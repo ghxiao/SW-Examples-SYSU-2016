@@ -1,0 +1,268 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://ex.org/"
+     xml:base="http://ex.org/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://ex.org/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ex.org/author -->
+
+    <owl:ObjectProperty rdf:about="http://ex.org/author"/>
+    
+
+
+    <!-- http://ex.org/hasAffiliation -->
+
+    <owl:ObjectProperty rdf:about="http://ex.org/hasAffiliation">
+        <rdfs:domain rdf:resource="http://ex.org/Person"/>
+        <rdfs:range rdf:resource="http://ex.org/Organization"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ex.org/hasMember -->
+
+    <owl:ObjectProperty rdf:about="http://ex.org/hasMember">
+        <owl:inverseOf rdf:resource="http://ex.org/memberOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ex.org/memberOf -->
+
+    <owl:ObjectProperty rdf:about="http://ex.org/memberOf"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ex.org/firstName -->
+
+    <owl:DatatypeProperty rdf:about="http://ex.org/firstName">
+        <rdfs:domain rdf:resource="http://ex.org/Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ex.org/Book -->
+
+    <owl:Class rdf:about="http://ex.org/Book">
+        <rdfs:subClassOf rdf:resource="http://ex.org/Publication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ex.org/FacultyMember -->
+
+    <owl:Class rdf:about="http://ex.org/FacultyMember">
+        <rdfs:subClassOf rdf:resource="http://ex.org/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ex.org/Human -->
+
+    <owl:Class rdf:about="http://ex.org/Human">
+        <owl:equivalentClass rdf:resource="http://ex.org/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ex.org/Man -->
+
+    <owl:Class rdf:about="http://ex.org/Man">
+        <rdfs:subClassOf rdf:resource="http://ex.org/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ex.org/Organization -->
+
+    <owl:Class rdf:about="http://ex.org/Organization"/>
+    
+
+
+    <!-- http://ex.org/Person -->
+
+    <owl:Class rdf:about="http://ex.org/Person">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ex.org/Man"/>
+                    <rdf:Description rdf:about="http://ex.org/Woman"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://ex.org/Woman"/>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://ex.org/Publication"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ex.org/Professor -->
+
+    <owl:Class rdf:about="http://ex.org/Professor">
+        <rdfs:subClassOf rdf:resource="http://ex.org/FacultyMember"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ex.org/Publication -->
+
+    <owl:Class rdf:about="http://ex.org/Publication"/>
+    
+
+
+    <!-- http://ex.org/StaffOfCS -->
+
+    <owl:Class rdf:about="http://ex.org/StaffOfCS">
+        <rdfs:subClassOf rdf:resource="http://ex.org/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ex.org/Technician -->
+
+    <owl:Class rdf:about="http://ex.org/Technician">
+        <rdfs:subClassOf rdf:resource="http://ex.org/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ex.org/TechniciansOfCS -->
+
+    <owl:Class rdf:about="http://ex.org/TechniciansOfCS">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ex.org/StaffOfCS"/>
+                    <rdf:Description rdf:about="http://ex.org/Technician"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://ex.org/Woman -->
+
+    <owl:Class rdf:about="http://ex.org/Woman">
+        <rdfs:subClassOf rdf:resource="http://ex.org/Person"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ex.org/facultyCS -->
+
+    <owl:NamedIndividual rdf:about="http://ex.org/facultyCS">
+        <rdf:type rdf:resource="http://ex.org/Organization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ex.org/francescoRicci -->
+
+    <owl:NamedIndividual rdf:about="http://ex.org/francescoRicci">
+        <rdf:type rdf:resource="http://ex.org/Professor"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ex.org/markusKroetzsch -->
+
+    <owl:NamedIndividual rdf:about="http://ex.org/markusKroetzsch">
+        <rdf:type rdf:resource="http://ex.org/Man"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ex.org/pascalHitzler -->
+
+    <owl:NamedIndividual rdf:about="http://ex.org/pascalHitzler">
+        <rdf:type rdf:resource="http://ex.org/Man"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ex.org/sebastianRudolph -->
+
+    <owl:NamedIndividual rdf:about="http://ex.org/sebastianRudolph">
+        <rdf:type rdf:resource="http://ex.org/Man"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ex.org/semanticWebBook -->
+
+    <owl:NamedIndividual rdf:about="http://ex.org/semanticWebBook">
+        <rdf:type rdf:resource="http://ex.org/Book"/>
+        <author rdf:resource="http://ex.org/markusKroetzsch"/>
+        <author rdf:resource="http://ex.org/pascalHitzler"/>
+        <author rdf:resource="http://ex.org/sebastianRudolph"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://ex.org/unibz -->
+
+    <owl:NamedIndividual rdf:about="http://ex.org/unibz">
+        <rdf:type rdf:resource="http://ex.org/Organization"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+
